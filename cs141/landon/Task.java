@@ -1,5 +1,7 @@
 package cs141.landon;
 
+import java.util.Scanner;
+
 public abstract class Task {
     protected String name;
     protected boolean priority;
@@ -16,6 +18,8 @@ public abstract class Task {
             System.out.println("  Task: " + name);
         }
     }
+
+    public abstract void editTask(Scanner input);
 
     public String getName() {
         return name;

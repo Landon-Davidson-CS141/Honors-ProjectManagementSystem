@@ -7,24 +7,25 @@ public class Project {
     protected ArrayList<Task> tasks = new ArrayList<>();
     protected String name;
 
-    public static void main(String[] args) {
-        Project obj = new Project("Programming Assignment");
-        obj.addDatedTask("Decide Project", true, new Date());
-        obj.addDefaultTask("Finish Project", false);
-        obj.addDefaultTask("Get Permission", true);
-        obj.print();
-    }
-
     public Project(String name) {
         this.name = name;
     }
 
-    public void addDefaultTask(String taskName, boolean priority) {
+    public void addTask(String taskName, boolean priority) {
         tasks.add(new DefaultTask(taskName, priority));
     }
 
-    public void addDatedTask(String taskName, boolean priority, Date taskDate) {
+    public void addTask(String taskName, boolean priority, Date taskDate) {
         tasks.add(new DatedTask(taskName, priority, taskDate));
+    }
+
+    public Task findTask(String name) {
+        for (Task task : tasks) {
+            if (task.getName().equals(name)) {
+                return task;
+            }
+        }
+        return ;
     }
 
     public void removeTask(int index) {
@@ -33,7 +34,7 @@ public class Project {
 
     public void print() {
         ArrayList<Task> temp = new ArrayList<>();
-        System.out.println("Project: " + name);
+        System.out.println("\nProject: " + name);
         for (Task task : tasks) {
             if (task.getPriority()) {
                 task.printTask();
@@ -44,5 +45,13 @@ public class Project {
         for (Task task : temp) {
             task.printTask();
         }
+    }
+
+    public String getName() {
+        return name;
+    }
+
+    public void setName(String name) {
+        this.name = name;
     }
 }
