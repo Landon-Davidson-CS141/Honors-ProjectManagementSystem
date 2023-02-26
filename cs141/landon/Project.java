@@ -25,7 +25,7 @@ public class Project {
                 return task;
             }
         }
-        return ;
+        return new DefaultTask("Blank", false);
     }
 
     public void removeTask(int index) {

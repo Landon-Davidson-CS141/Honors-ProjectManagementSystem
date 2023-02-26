@@ -45,6 +45,7 @@ public class ProjectManagementSystem {
             userProject = projects.get(input.nextInt() - 1);
         } else {
             userProject = projects.get(0);
+            System.out.println("\nYou only have one project, automatically selecting " + userProject.getName() + " project");
         }
         userProject.print();
         System.out.print("\nWhat is the task you want to add? ");
@@ -73,11 +74,13 @@ public class ProjectManagementSystem {
             userProject = projects.get(input.nextInt() - 1);
         } else {
             userProject = projects.get(0);
+            System.out.println("\nYou only have one project, automatically selecting " + userProject.getName() + " project");
         }
         userProject.print();
         input.nextLine();
-        System.out.print("Which task would you like to edit? (Enter the full task name) ");
+        System.out.print("\nWhich task would you like to edit? (Enter the full task name) ");
         String userBody = input.nextLine();
+        userProject.findTask(userBody).editTask(input);
 
     }
 

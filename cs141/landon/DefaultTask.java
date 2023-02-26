@@ -17,7 +17,7 @@ public class DefaultTask extends Task {
         System.out.println();
         System.out.println("1. Name: " + name);
         System.out.println("2. Priority: " + priority);
-        System.out.print("3. Cancel");
+        System.out.println("3. Cancel");
         System.out.print("Which Property would you like to edit? ");
         switch (input.nextInt()) {
             case 1 -> {
