@@ -1,3 +1,12 @@
+/*
+Programmer: Landon Davidson
+Section: 27258
+Program Name: DatedTask
+
+Description: Child class of Task object that takes a Date object of when the task needs to be done. Overrides Task's
+printTask() and editTask() methods.
+ */
+
 package cs141.landon;
 
 import java.util.Date;
