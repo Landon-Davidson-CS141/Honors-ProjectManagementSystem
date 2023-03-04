@@ -33,7 +33,8 @@ public class ProjectManagementSystem {
 
     public void addProject() {
         System.out.print("\nPlease enter a name for your new project: ");
-        String name = input.next();
+        input.nextLine();
+        String name = input.nextLine();
         projects.add(new Project(name));
     }
 
