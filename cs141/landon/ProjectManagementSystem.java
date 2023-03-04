@@ -17,7 +17,9 @@ public class ProjectManagementSystem {
                 case 2 -> obj.addTask();
                 case 3 -> obj.print();
                 case 4 -> obj.editTask();
-                case 5 -> running = false;
+                case 5 -> obj.removeTask();
+                case 6 -> obj.removeProject();
+                case 7 -> running = false;
             }
         }
     }
@@ -104,9 +106,32 @@ public class ProjectManagementSystem {
         System.out.println("2. Add New Task");
         System.out.println("3. View Projects and Tasks");
         System.out.println("4. Edit a Task");
-        System.out.println("5. Exit");
+        System.out.println("5. Remove a Task");
+        System.out.println("6. Remove a Project");
+        System.out.println("7. Exit");
 
         System.out.print("Please enter which action you would like to take: ");
         return input.nextInt();
+    }
+
+    public void removeTask() {
+        printProjects();
+        System.out.print("Which project would you like to remove a task from? ");
+        Project userProject = projects.get(input.nextInt() - 1);
+        userProject.print();
+
+        input.nextLine();
+        System.out.print("\nWhich task would you like to remove? (Enter the full task name) ");
+        userProject.removeTask(userProject.findTaskIndex(input.nextLine()));
+
+        System.out.println("Current Task list:");
+        userProject.print();
+    }
+
+    public void removeProject() {
+        printProjects();
+        System.out.print("Which project would you like to remove? ");
+        projects.remove(input.nextInt() - 1);
+
     }
 }
